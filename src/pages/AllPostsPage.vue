@@ -125,7 +125,10 @@ const averageTitleLength = computed(() => {
     sumOfTitleLength += activePost.title.length
   }
 
-  return sumOfTitleLength / activePosts.length
+  const result = sumOfTitleLength / activePosts.length
+
+  // result with floor to 2 decimal
+  return Math.floor(result * 100) / 100
 })
 
 const clickRowHandler = row => router.push(`/post/${row.id}`)
